@@ -15,22 +15,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: Size(1024, 768),
-      builder: () => MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => MenuModel(),
-          )
-        ],
-        child: MaterialApp(
-            title: 'Ijas Portfolio',
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              primarySwatch: Colors.green,
-            ),
-            home: MainScreen()),
-      ),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => MenuModel(),
+        )
+      ],
+      child: MaterialApp(
+          title: 'Ijas Portfolio',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primarySwatch: Colors.green,
+          ),
+          home: MainScreen()),
     );
   }
 }
