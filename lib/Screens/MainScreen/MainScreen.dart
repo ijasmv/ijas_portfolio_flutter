@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ijas_portfolio_flutter/Screens/MainScreen/DesktopBgView.dart';
 import 'package:ijas_portfolio_flutter/Utils/ColorUtils.dart';
+import 'package:ijas_portfolio_flutter/Utils/ResponsiveLayout.dart';
 import 'package:ijas_portfolio_flutter/Utils/Utils.dart';
 
 class MainScreen extends StatefulWidget {
@@ -12,17 +14,26 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [ColorUtils.SECONDARY_COLOR, ColorUtils.PRIMARY_COLOR]),
-            image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage(Utils.getAssetPng("bg_main")))),
-      ),
-    );
+    return Scaffold(
+        backgroundColor: ColorUtils.DARK_BLACK,
+        body: ResponsiveLayout(
+            desktop: _getDesktopView(),
+            mobile: _getDesktopView(),
+            tablet: _getDesktopView()));
   }
+
+  Widget _getDesktopView() => DesktopBgView(
+          child: Row(
+        children: [
+          Expanded(flex: 1, child: Container()),
+          Expanded(
+            flex: 2,
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(35),
+                  color: ColorUtils.DARK_BLACK),
+            ),
+          ),
+        ],
+      ));
 }
