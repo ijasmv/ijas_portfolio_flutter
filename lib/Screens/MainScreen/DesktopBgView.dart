@@ -4,9 +4,9 @@ import 'package:ijas_portfolio_flutter/Screens/MainScreen/SideMenu.dart';
 import 'package:ijas_portfolio_flutter/Utils/ColorUtils.dart';
 import 'package:ijas_portfolio_flutter/Utils/Utils.dart';
 
-class DesktopBgView extends StatelessWidget {
+class DesktopMainView extends StatelessWidget {
   final Widget child;
-  const DesktopBgView({Key? key, required this.child}) : super(key: key);
+  const DesktopMainView({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class DesktopBgView extends StatelessWidget {
             gradient: LinearGradient(
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
-                colors: [ColorUtils.SECONDARY_COLOR, ColorUtils.PRIMARY_COLOR]),
+                colors: [ColorUtils.SECONDARY_COLOR, ColorUtils.GRADIENT_BG]),
             image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage(Utils.getAssetPng("bg_main")))),

@@ -18,11 +18,11 @@ class _MainScreenState extends State<MainScreen> {
         backgroundColor: ColorUtils.DARK_BLACK,
         body: ResponsiveLayout(
             desktop: _getDesktopView(),
-            mobile: _getDesktopView(),
-            tablet: _getDesktopView()));
+            mobile: _getTabletView(),
+            tablet: _getTabletView()));
   }
 
-  Widget _getDesktopView() => DesktopBgView(
+  Widget _getDesktopView() => DesktopMainView(
           child: Row(
         children: [
           Expanded(flex: 1, child: Container()),
@@ -36,4 +36,6 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ));
+
+  Widget _getTabletView() => Container(color: ColorUtils.DARK_BLACK);
 }
