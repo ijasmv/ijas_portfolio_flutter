@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:ijas_portfolio_flutter/Services/Provider/MenuModel.dart';
 import 'package:ijas_portfolio_flutter/Utils/ColorUtils.dart';
 import 'package:ijas_portfolio_flutter/Utils/FontUtils.dart';
 import 'package:ijas_portfolio_flutter/Utils/Utils.dart';
+import 'package:provider/provider.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
-class SideMenu extends StatelessWidget {
+class SideMenu extends StatefulWidget {
   const SideMenu({Key? key}) : super(key: key);
   static const List<String> menuIcons = [
     "home",
@@ -20,6 +22,14 @@ class SideMenu extends StatelessWidget {
   ];
 
   @override
+  _SideMenuState createState() => _SideMenuState();
+}
+
+class _SideMenuState extends State<SideMenu> {
+  int selectedIndex = 0;
+  int? hoverIndex;
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: 20, right: 10, top: 70),
@@ -31,28 +41,42 @@ class SideMenu extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: List.generate(
-            menuIcons.length,
+            SideMenu.menuIcons.length,
             (index) => Tooltip(
                   waitDuration: Duration(milliseconds: 0),
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   textStyle: FontUtils.getMenuLabelStyle(),
                   decoration: BoxDecoration(color: ColorUtils.PRIMARY_COLOR),
-                  message: menuNames[index],
+                  message: SideMenu.menuNames[index],
                   child: InkWell(
                     enableFeedback: true,
                     onTap: () {
-                      print("d");
+                      setState(() {
+                        selectedIndex = index;
+                        Menu menu = Menu.values[index];
+                        Provider.of<MenuModel>(context, listen: false)
+                            .setMenu(menu);
+                      });
                     },
-                    onHover: (d) {
-                      print("object");
-                      print(d);
+                    onHover: (hovered) {
+                      if (hovered) {
+                        setState(() {
+                          hoverIndex = index;
+                        });
+                      } else {
+                        setState(() {
+                          hoverIndex = null;
+                        });
+                      }
                     },
                     child: Padding(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: WebsafeSvg.asset(
-                          Utils.getAssetSvg(menuIcons[index]),
+                          Utils.getAssetSvg(SideMenu.menuIcons[index]),
                           height: 30,
-                          color: ColorUtils.ICON_GREY),
+                          color: index == hoverIndex || index == selectedIndex
+                              ? ColorUtils.PRIMARY_COLOR
+                              : ColorUtils.ICON_GREY),
                     ),
                   ),
                 )),

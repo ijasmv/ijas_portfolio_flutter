@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ijas_portfolio_flutter/Screens/MainScreen/DesktopBgView.dart';
+import 'package:ijas_portfolio_flutter/Services/Provider/MenuModel.dart';
 import 'package:ijas_portfolio_flutter/Utils/ColorUtils.dart';
 import 'package:ijas_portfolio_flutter/Utils/ResponsiveLayout.dart';
 import 'package:ijas_portfolio_flutter/Utils/Utils.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -12,8 +14,10 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  late Menu selectedMenu;
   @override
   Widget build(BuildContext context) {
+    selectedMenu = Provider.of<MenuModel>(context).menu;
     return Scaffold(
         backgroundColor: ColorUtils.DARK_BLACK,
         body: ResponsiveLayout(
