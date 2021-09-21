@@ -8,4 +8,5 @@ class ColorUtils {
   static const Color DARK_BLACK = Color(0xFF222222);
   static const Color WHITE = Color(0xFFFFFFFF);
   static const Color ICON_GREY = Color(0xFFB5B6B7);
+  static const Color FONT_GREY = Color(0xFFBBBBBB);
 }

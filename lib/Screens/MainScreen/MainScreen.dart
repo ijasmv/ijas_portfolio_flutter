@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ijas_portfolio_flutter/Screens/MainScreen/DesktopBgView.dart';
+import 'package:ijas_portfolio_flutter/Screens/ProfileView/ProfileView.dart';
 import 'package:ijas_portfolio_flutter/Services/Provider/MenuModel.dart';
 import 'package:ijas_portfolio_flutter/Utils/ColorUtils.dart';
 import 'package:ijas_portfolio_flutter/Utils/ResponsiveLayout.dart';
@@ -29,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget _getDesktopView() => DesktopMainView(
           child: Row(
         children: [
-          Expanded(flex: 1, child: Container()),
+          Expanded(flex: 1, child: ProfileView()),
           Expanded(
             flex: 2,
             child: Container(
