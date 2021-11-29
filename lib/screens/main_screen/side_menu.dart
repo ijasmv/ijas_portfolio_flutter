@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ijas_portfolio_flutter/Services/Provider/MenuModel.dart';
-import 'package:ijas_portfolio_flutter/Utils/ColorUtils.dart';
-import 'package:ijas_portfolio_flutter/Utils/FontUtils.dart';
-import 'package:ijas_portfolio_flutter/Utils/Utils.dart';
+import 'package:ijas_portfolio_flutter/services/provider/menu_model.dart';
+import 'package:ijas_portfolio_flutter/utils/color_utils.dart';
+import 'package:ijas_portfolio_flutter/utils/font_utils.dart';
+import 'package:ijas_portfolio_flutter/utils/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
@@ -35,7 +35,7 @@ class _SideMenuState extends State<SideMenu> {
       margin: EdgeInsets.only(left: 20, right: 10, top: 70),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       decoration: BoxDecoration(
-          color: ColorUtils.CARD_BG_BLACK,
+          color: ColorUtils.bgCardBlack,
           borderRadius: BorderRadius.vertical(
               top: Radius.circular(300), bottom: Radius.circular(300))),
       child: Column(
@@ -46,7 +46,7 @@ class _SideMenuState extends State<SideMenu> {
                   waitDuration: Duration(milliseconds: 0),
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   textStyle: FontUtils.getMenuLabelStyle(),
-                  decoration: BoxDecoration(color: ColorUtils.PRIMARY_COLOR),
+                  decoration: BoxDecoration(color: ColorUtils.primaryColor),
                   message: SideMenu.menuNames[index],
                   child: InkWell(
                     enableFeedback: true,
@@ -75,8 +75,8 @@ class _SideMenuState extends State<SideMenu> {
                           Utils.getAssetSvg(SideMenu.menuIcons[index]),
                           height: 30,
                           color: index == hoverIndex || index == selectedIndex
-                              ? ColorUtils.PRIMARY_COLOR
-                              : ColorUtils.ICON_GREY),
+                              ? ColorUtils.primaryColor
+                              : ColorUtils.iconGrey),
                     ),
                   ),
                 )),

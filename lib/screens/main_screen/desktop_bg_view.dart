@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ijas_portfolio_flutter/Screens/MainScreen/NavButtons.dart';
-import 'package:ijas_portfolio_flutter/Screens/MainScreen/SideMenu.dart';
-import 'package:ijas_portfolio_flutter/Utils/ColorUtils.dart';
-import 'package:ijas_portfolio_flutter/Utils/Utils.dart';
+import 'package:ijas_portfolio_flutter/screens/main_screen/nav_buttons.dart';
+import 'package:ijas_portfolio_flutter/screens/main_screen/side_menu.dart';
+import 'package:ijas_portfolio_flutter/utils/color_utils.dart';
+import 'package:ijas_portfolio_flutter/utils/utils.dart';
 
 class DesktopMainView extends StatelessWidget {
   final Widget child;
@@ -12,13 +12,11 @@ class DesktopMainView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
-                colors: [ColorUtils.SECONDARY_COLOR, ColorUtils.GRADIENT_BG]),
-            image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage(Utils.getAssetPng("bg_main")))),
+                colors: [ColorUtils.secondaryColor, ColorUtils.bgGradient]),
+            image: DecorationImage(fit: BoxFit.cover, image: AssetImage(Utils.getAssetPng("bg_main")))),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
@@ -26,16 +24,14 @@ class DesktopMainView extends StatelessWidget {
             Expanded(
               child: Container(
                   clipBehavior: Clip.antiAlias,
-                  margin: EdgeInsets.only(left: 100, bottom: 70, top: 70),
-                  decoration: BoxDecoration(
-                      color: ColorUtils.CARD_BG_BLACK,
-                      borderRadius: BorderRadius.circular(35)),
+                  margin: const EdgeInsets.only(left: 100, bottom: 70, top: 70),
+                  decoration: BoxDecoration(color: ColorUtils.bgCardBlack, borderRadius: BorderRadius.circular(35)),
                   child: child),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.max,
-              children: [SideMenu(), NavButtons()],
+              children: const [SideMenu(), NavButtons()],
             )
           ],
         ));

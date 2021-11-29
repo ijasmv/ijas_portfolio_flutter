@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ijas_portfolio_flutter/Utils/ResponsiveLayout.dart';
+import 'package:ijas_portfolio_flutter/utils/responsive_layout.dart';
 
 class ScreenUtils {
   static Size getDesignScreenSizes(BuildContext context) {

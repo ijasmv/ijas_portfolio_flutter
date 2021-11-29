@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ijas_portfolio_flutter/Utils/ColorUtils.dart';
-import 'package:ijas_portfolio_flutter/Utils/FontUtils.dart';
-import 'package:ijas_portfolio_flutter/Utils/Utils.dart';
+import 'package:ijas_portfolio_flutter/utils/color_utils.dart';
+import 'package:ijas_portfolio_flutter/utils/font_utils.dart';
+import 'package:ijas_portfolio_flutter/utils/utils.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({Key? key}) : super(key: key);
@@ -16,8 +16,8 @@ class ProfileView extends StatelessWidget {
             height: 174,
             width: 174,
             decoration: BoxDecoration(
-                border: Border.all(color: ColorUtils.WHITE, width: 3),
-                color: ColorUtils.CARD_BG_BLACK,
+                border: Border.all(color: ColorUtils.white, width: 3),
+                color: ColorUtils.bgCardBlack,
                 shape: BoxShape.circle),
             child: Container(
                 clipBehavior: Clip.antiAlias,

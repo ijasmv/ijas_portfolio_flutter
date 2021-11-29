@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ijas_portfolio_flutter/Screens/MainScreen/DesktopBgView.dart';
-import 'package:ijas_portfolio_flutter/Screens/ProfileView/ProfileView.dart';
-import 'package:ijas_portfolio_flutter/Services/Provider/MenuModel.dart';
-import 'package:ijas_portfolio_flutter/Utils/ColorUtils.dart';
-import 'package:ijas_portfolio_flutter/Utils/ResponsiveLayout.dart';
-import 'package:ijas_portfolio_flutter/Utils/Utils.dart';
+import 'package:ijas_portfolio_flutter/screens/main_screen/desktop_bg_view.dart';
+import 'package:ijas_portfolio_flutter/screens/profile_view/profile_view.dart';
+import 'package:ijas_portfolio_flutter/services/provider/menu_model.dart';
+import 'package:ijas_portfolio_flutter/utils/color_utils.dart';
+import 'package:ijas_portfolio_flutter/utils/responsive_layout.dart';
 import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
@@ -20,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     selectedMenu = Provider.of<MenuModel>(context).menu;
     return Scaffold(
-        backgroundColor: ColorUtils.DARK_BLACK,
+        backgroundColor: ColorUtils.darkBlack,
         body: ResponsiveLayout(
             desktop: _getDesktopView(),
             mobile: _getTabletView(),
@@ -36,11 +35,11 @@ class _MainScreenState extends State<MainScreen> {
             child: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(35),
-                  color: ColorUtils.DARK_BLACK),
+                  color: ColorUtils.darkBlack),
             ),
           ),
         ],
       ));
 
-  Widget _getTabletView() => Container(color: ColorUtils.DARK_BLACK);
+  Widget _getTabletView() => Container(color: ColorUtils.darkBlack);
 }

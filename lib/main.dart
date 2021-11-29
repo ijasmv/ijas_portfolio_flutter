@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_device_type/flutter_device_type.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ijas_portfolio_flutter/Screens/MainScreen/MainScreen.dart';
-import 'package:ijas_portfolio_flutter/Services/Provider/MenuModel.dart';
-import 'package:ijas_portfolio_flutter/Utils/ResponsiveLayout.dart';
-import 'package:ijas_portfolio_flutter/Utils/ScreenUtils.dart';
+import 'package:ijas_portfolio_flutter/screens/main_screen/main_screen.dart';
+import 'package:ijas_portfolio_flutter/services/provider/menu_model.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -16,11 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (context) => MenuModel(),
-        )
-      ],
+      providers: [ChangeNotifierProvider(create: (context) => MenuModel())],
       child: MaterialApp(
           title: 'Ijas Portfolio',
           debugShowCheckedModeBanner: false,
